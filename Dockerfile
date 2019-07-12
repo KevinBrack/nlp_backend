@@ -2,6 +2,10 @@ FROM python
 
 WORKDIR /app
 
+RUN apt update -y &&\
+    apt ugrade -y &&\
+    apt install build-essential python-dev
+
 COPY requirements.txt .
 
 RUN pip install -r requirements.txt
@@ -10,4 +14,6 @@ COPY . .
 
 EXPOSE 8000
 
-CMD [ "gunicorn", "--reload", "-b 0.0.0.0:8000", "/qa_api/qa_api:api"]
+WORKDIR /app/qa_api
+
+CMD [ "gunicorn", "--reload", "-b 0.0.0.0:8000", "qa_api:api"]
