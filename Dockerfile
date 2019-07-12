@@ -3,7 +3,6 @@ FROM python
 WORKDIR /app
 
 RUN apt update -y &&\
-    apt ugrade &&\
     apt install -y build-essential python-dev
 
 COPY requirements.txt .
