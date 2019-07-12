@@ -9,6 +9,8 @@ COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
+RUN pip install gunicorn[gevent]
+
 RUN python3 -m spacy download en
 
 COPY . .
