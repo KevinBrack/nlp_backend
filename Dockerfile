@@ -17,4 +17,4 @@ EXPOSE 8000
 
 WORKDIR /app/qa_api
 
-CMD [ "gunicorn", "--reload", "-b 0.0.0.0:8000", "qa_api:api"]
+CMD [ "gunicorn", "--reload", "--timeout 120", "-b 0.0.0.0:8000", "qa_api:api"]
