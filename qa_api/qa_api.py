@@ -1,10 +1,10 @@
 import falcon
 import json
 # import en_core_web_sm
-import spacey
+import spacy
 from collections import Counter
 
-nlp = spacey.load("en_core_web_sm")
+nlp = spacy.load("en_core_web_sm")
 
 # Loads Objectives and Modules
 with open ('Objectives.json', 'r') as obj:
