@@ -19,6 +19,10 @@ EXPOSE 8000
 
 WORKDIR /app/qa_api
 
+ENTRYPOINT [ "gunicorn" ]
+
+CMD [ "--reload", "--timeout 120", "-b 0.0.0.0:8000", "--workers 2", "--worker-class gevent", "qa_api:api" ]
+
 # RUN "gunicorn --reload --timeout 120 -b 0.0.0.0:8000 --workers 2 --worker-class gevent qa_api:api"
 
 # CMD [ "gunicorn", "--reload --timeout 120 -b 0.0.0.0:8000", "qa_api:api"]
